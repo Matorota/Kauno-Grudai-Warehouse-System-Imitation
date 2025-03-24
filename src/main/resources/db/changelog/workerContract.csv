@@ -1,0 +1,4 @@
+id;contract_type;worker_id;job_title_id;salary_id
+1;LongTerm;1;1;1
+2;ShortTerm;2;2;2
+3;FromHome;3;3;3

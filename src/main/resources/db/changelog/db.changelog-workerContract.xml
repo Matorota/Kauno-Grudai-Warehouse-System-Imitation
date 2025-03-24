@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="create-workerContract-table"  author="m.strimaitis">
+
+        <createTable  tableName="worker_contract">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints  primaryKey="true" nullable="false"/>
+            </column>
+            <column name="contract_type" type="varchar(100)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="worker_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_title_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salary_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="worker_contract" baseColumnNames="worker_id" constraintName="contract_worker"
+                                 referencedTableName="worker"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="worker_contract" baseColumnNames="job_title_id"
+                                 constraintName="contract_job_title"
+                                 referencedTableName="job_title"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="worker_contract" baseColumnNames="salary_id"
+                                 constraintName="contract_salary"
+                                 referencedTableName="salary"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+    <changeSet id="load-workerContract-data" author="m.strimaitis">
+        <loadData separator=";" tableName="worker_contract" file="workerContract.csv"
+                  relativeToChangelogFile="true" />
+    </changeSet>
+
+</databaseChangeLog>

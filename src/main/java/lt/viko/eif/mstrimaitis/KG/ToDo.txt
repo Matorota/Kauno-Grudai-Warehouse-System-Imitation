@@ -1,0 +1,4 @@
+1. Finnish Models
+2. For the new models create xml csv and add them to yaml
+3. Combine everything into worker and department repositorys
+4. Display them in one way or the other

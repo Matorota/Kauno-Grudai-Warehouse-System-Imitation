@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/db.changelog-department.xml
+  - include:
+      file: db/changelog/db.changelog-worker.xml
+  - include:
+      file: db/changelog/db.changelog-jobTitle.xml
+  - include:
+      file: db/changelog/db.changelog-salary.xml
+  - include:
+      file: db/changelog/db.changelog-workerContract.xml
+
+
+
